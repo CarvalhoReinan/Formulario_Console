@@ -1,5 +1,8 @@
 from InquirerPy import prompt
 import emoji
+from time import sleep
+import os
+# Formulário de Console para avaliar o tempo de estudo em Python
 
 def obter_metodo_estudo(nome):
     questoes = [
@@ -10,7 +13,7 @@ def obter_metodo_estudo(nome):
             'name': 'metodo'
         }
     ]
-    return prompt(questoes)
+    return prompt(questoes) #Pergunta sobre o método de estudo através do console onde o usuário escolhe uma opção e assim retorna o resultado
 
 def obter_tempo_estudo(nome):
     tempo = [
@@ -23,9 +26,9 @@ def obter_tempo_estudo(nome):
     ]
     return prompt(tempo)
 
-def avaliar_tempo_estudo(tempo_gasto):
+def avaliar_tempo_estudo(tempo_gasto): # Avalia o tempo gasto pelo usuário
     if tempo_gasto['esforço'] == '0-30 Min':
-        print('Você está no caminho certo, mas precisa de mais tempo para aprender.')
+        print('Você está começando bem, mas tente aumentar o tempo gradualmente.')
     elif tempo_gasto['esforço'] == '1-2 Horas':
         print('Ótimo tempo!')
     elif tempo_gasto['esforço'] == '3-4 Horas':
@@ -39,7 +42,7 @@ def perguntar_tempo(nome):
     perguntas = [
         {
             'type': "list", 
-            'message': (emoji.emojize(f"{nome}, qual é seu conhecimento em Python :cobra:? ↓ - ↑ \n", language='pt')),
+            'message': (emoji.emojize(f"{nome}, qual é seu conhecimento em Python :cobra: ? ↓ - ↑ \n", language='pt')),
             'choices': ["Iniciante", "Intermediário", "Avançado", "Cancelar"],
             'name': 'conhecimento'
         }     
@@ -48,13 +51,17 @@ def perguntar_tempo(nome):
     resultado = prompt(perguntas)
 
     if resultado['conhecimento'] == "Cancelar":
-        print("Você não escolheu uma opção válida")
+        print(f"{nome}, Você não escolheu uma opção válida \n Fechando Programa !")
+        sleep(3)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Programa encerrado !")
+        
         return
 
     metodo_resultado = obter_metodo_estudo(nome)
     if metodo_resultado['metodo'] == "Outro?":
         alternativa = input(f"{nome}, qual é o método que você usa para aprender Python? \n")
-        print(f"Você estuda Python por meio de: {alternativa} !")
+        print(f"Você estuda Python por meio de: {alternativa}, que bacana !")
 
     tempo_gasto = obter_tempo_estudo(nome)
     avaliar_tempo_estudo(tempo_gasto)
