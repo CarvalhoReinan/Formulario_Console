@@ -59,6 +59,9 @@ def perguntar_tempo(nome):
     tempo_gasto = obter_tempo_estudo(nome)
     avaliar_tempo_estudo(tempo_gasto)
 
-# Usabilidade
-nome = input("Qual é o seu nome? ")
-perguntar_tempo(nome)
+def main():
+    nome = input("Qual é o seu nome? ")
+    perguntar_tempo(nome)
+
+if __name__ == "__main__":
+    main()
