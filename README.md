@@ -1,47 +1,86 @@
-# 🐍 Formulário Console - Avaliador de Estudos em Python
+# 📊 Estudo em Python - Console Form
 
-Este é um projeto **em construção**, criado por um estudante de programação como parte do aprendizado em Python.
+Um formulário interativo no terminal feito com [InquirerPy](https://github.com/kazhala/InquirerPy) para ajudar desenvolvedores a refletirem sobre seus hábitos de estudo em Python 🐍.
 
-O objetivo é desenvolver um **formulário interativo no terminal** que ajude usuários a refletirem sobre seus hábitos de estudo em Python — como tempo dedicado, método de aprendizado e nível de conhecimento.
+## 🚀 Sobre o Projeto
 
-> Projeto simples, mas feito com dedicação e vontade de evoluir! 🚀
+Este projeto tem como objetivo criar um **questionário leve, divertido e personalizável** para usuários avaliarem:
 
-## 🚧 Status do Projeto
+- Seu nível atual em Python.
+- Quanto tempo dedicam aos estudos.
+- Por onde estão aprendendo.
+- Se já usam algum framework back-end (como Flask ou Django).
 
-🔧 **Em desenvolvimento**  
-📚 Feito por um estudante em processo de aprendizado  
-💡 Atualizações e melhorias virão com o tempo!
+## 🧰 Tecnologias e Bibliotecas
 
-## 🚀 Funcionalidades (atualmente disponíveis)
-
-- Pergunta o **nome do usuário**
-- Coleta o **nível de conhecimento em Python**
-- Pergunta o **método de estudo** (YouTube, Google, Livro, etc.)
-- Coleta o **tempo de estudo diário**
-- Fornece **feedback motivacional**
-
-## 🧰 Tecnologias Utilizadas
-
-- Python 3.x
+- Python 3.10+
 - [InquirerPy](https://github.com/kazhala/InquirerPy)
-- emoji
-- os / time
+- [emoji](https://github.com/carpedm20/emoji)
 
+## 📦 Instalação
+
+Clone o repositório e instale as dependências:
+
+```bash
 ## 📦 Como Instalar
 
 ```bash
 git clone https://github.com/CarvalhoReinan/formulario-console.git
 cd formulario-console
-pip install InquirerPy emoji
+pip install InquirerPy 
+pip install emoji
 ```
 
-## ▶️ Como Usar
+## ▶️ Como Executar
+
+No terminal, digite:
 
 ```bash
-python nome_do_arquivo.py
+python formulario-Console.py
 ```
 
-> Substitua `nome_do_arquivo.py` pelo nome real do script Python.
+Você será guiado por um conjunto de perguntas que adaptam a conversa com base nas suas respostas.
+
+## 📁 Estrutura do Projeto
+
+```
+.
+├── config.py          # Dados fixos como listas de opções
+├── perguntas.py       # Lógica das perguntas interativas
+├── formulario-Console.py            # Ponto de entrada
+├── requirements.txt   # Dependências do projeto
+└── README.md          # Este arquivo
+```
+
+## ✍️ Personalização
+
+Você pode facilmente:
+
+- Adicionar novos frameworks em `config.py`.
+- Alterar o estilo das mensagens.
+- Incluir novas perguntas no arquivo `perguntas.py`.
+
+## 📸 Preview (simulação)
+
+```
+Qual é o seu nome? Reii
+Reii, qual é seu conhecimento em Python 🐍 ? ↓ - ↑
+❯ Iniciante
+  Intermediário
+  Avançado
+  Cancelar
+
+Reii, você é iniciante em Python, continue estudando e praticando!
+Por onde você estuda Python? 🐍
+❯ Youtube
+  Google
+  Livro
+  Outro?
+```
+
+## 📌 Status
+
+🛠 Em desenvolvimento. Sinta-se livre para sugerir melhorias ou abrir issues!
 
 ## 💡 Melhorias Futuras (planejadas)
 
