@@ -1,32 +1,53 @@
-from InquirerPy import prompt
+from InquirerPy import prompt, inquirer
 import emoji
-from time import sleep
 import os
-# Formulário de Console para avaliar o tempo de estudo em Python
+from time import sleep
+from config import frameworks, horas, estudo, nivel
+
+def perguntar_framework(nome):
+    print(emoji.emojize(f"{nome}, vamos falar sobre frameworks :snake:", language='pt'))
+    pergunta = [
+        {
+            'type': "list",
+            'message': emoji.emojize(f"{nome}, você usa algum framework? ↓ - ↑", language='pt'),
+            'choices': frameworks,
+            'name': 'framework'
+        }
+    ]
+    resposta = prompt(pergunta)
+
+    if resposta['framework'] == "Cancelar":
+        print("Tudo bem! Nenhum framework selecionado.")
+        return
+    elif resposta['framework'] == "Outro?":
+        outro = inquirer.text(message="Qual outro framework você usa?").execute()
+        print(f"Legal! Você usa {outro}.")
+    else:
+        print(f"Muito bom! Você está usando {resposta['framework']}.")
 
 def obter_metodo_estudo(nome):
     questoes = [
         {
             'type': "list", 
-            'message': (emoji.emojize(f'{nome}, Por onde você estuda Python? :cobra:', language='pt')),
-            'choices': ["Youtube", "Google", "Livro", "Outro?"],
+            'message': emoji.emojize(f'{nome}, por onde você estuda Python? :snake:', language='pt'),
+            'choices': estudo,
             'name': 'metodo'
         }
     ]
-    return prompt(questoes) #Pergunta sobre o método de estudo através do console onde o usuário escolhe uma opção e assim retorna o resultado
+    return prompt(questoes)
 
 def obter_tempo_estudo(nome):
     tempo = [
         {
             'type': 'list',
-            'message': f"{nome}, Qual é o seu tempo de estudo por dia? (em horas) ↓ - ↑\n",
-            'choices': ['0-30 Min', '1-2 Horas', '3-4 Horas', 'Outro?'],
+            'message': f"{nome}, qual é o seu tempo de estudo por dia? (em horas) ↓ - ↑",
+            'choices': horas,
             'name': 'esforço'
         }
     ]
     return prompt(tempo)
 
-def avaliar_tempo_estudo(tempo_gasto): # Avalia o tempo gasto pelo usuário
+def avaliar_tempo_estudo(tempo_gasto):
     if tempo_gasto['esforço'] == '0-30 Min':
         print('Você está começando bem, mas tente aumentar o tempo gradualmente.')
     elif tempo_gasto['esforço'] == '1-2 Horas':
@@ -34,41 +55,44 @@ def avaliar_tempo_estudo(tempo_gasto): # Avalia o tempo gasto pelo usuário
     elif tempo_gasto['esforço'] == '3-4 Horas':
         print('Bom tempo, isso trará bons resultados.')
     else:
-        outros = input('Quantas horas? ')
-        print(f'{outros} horas ! Muito bom!')
+        outros = inquirer.text(message='Quantas horas?').execute()
+        print(f'{outros} horas! Muito bom!')
 
 def perguntar_tempo(nome):
-    # Pergunta sobre o conhecimento em Python
     perguntas = [
         {
             'type': "list", 
-            'message': (emoji.emojize(f"{nome}, qual é seu conhecimento em Python :cobra: ? ↓ - ↑ \n", language='pt')),
-            'choices': ["Iniciante", "Intermediário", "Avançado", "Cancelar"],
+            'message': emoji.emojize(f"{nome}, qual é seu conhecimento em Python :snake:? ↓ - ↑", language='pt'),
+            'choices': nivel,
             'name': 'conhecimento'
-        }     
+        }
     ]
-    
+
     resultado = prompt(perguntas)
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     if resultado['conhecimento'] == "Cancelar":
-        print(f"{nome}, Você não escolheu uma opção válida \n Fechando Programa !")
+        print(f"{nome}, você não escolheu uma opção válida.\nFechando programa!")
         sleep(3)
         os.system('cls' if os.name == 'nt' else 'clear')
-        print("Programa encerrado !")
-        
+        print("Programa encerrado!")
         return
+
+    elif resultado['conhecimento'] == "Iniciante":
+        print(f"{nome}, você é iniciante em Python. Continue estudando e praticando!")
+        print("Recomendo começar com os fundamentos e praticar exercícios básicos.")
+
+    elif resultado['conhecimento'] == "Intermediário":
+        print(f"{nome}, você está no caminho certo. Continue praticando e aprendendo!")
+
+    elif resultado['conhecimento'] == "Avançado":
+        print(f"{nome}, você é avançado em Python. Continue se desafiando!")
+        perguntar_framework(nome)
 
     metodo_resultado = obter_metodo_estudo(nome)
     if metodo_resultado['metodo'] == "Outro?":
-        alternativa = input(f"{nome}, qual é o método que você usa para aprender Python? \n")
-        print(f"Você estuda Python por meio de: {alternativa}, que bacana !")
+        alternativa = input(f"{nome}, qual é o método que você usa para aprender Python?\n")
+        print(f"Você estuda Python por meio de: {alternativa}. Que bacana!")
 
     tempo_gasto = obter_tempo_estudo(nome)
     avaliar_tempo_estudo(tempo_gasto)
-
-def main():
-    nome = input("Qual é o seu nome? ")
-    perguntar_tempo(nome)
-
-if __name__ == "__main__":
-    main()
