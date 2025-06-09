@@ -1,4 +1,4 @@
-from perguntas import perguntar_tempo
+from formulario.Console import perguntar_tempo
 
 def main():
     nome = input("Qual é o seu nome? ").capitalize()
