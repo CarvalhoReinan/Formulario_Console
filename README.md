@@ -47,7 +47,7 @@ Você será guiado por um conjunto de perguntas que adaptam a conversa com base 
 .
 ├── config.py          # Dados fixos como listas de opções
 ├── perguntas.py       # Lógica das perguntas interativas
-├── formulario-Console.py            # Ponto de entrada
+├── main.py            # Ponto de entrada
 ├── requirements.txt   # Dependências do projeto
 └── README.md          # Este arquivo
 ```
