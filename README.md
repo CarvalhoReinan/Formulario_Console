@@ -25,7 +25,7 @@ Clone o repositório e instale as dependências:
 ## 📦 Como Instalar
 
 ```bash
-git clone https://github.com/CarvalhoReinan/formulario-console.git
+git clone https://github.com/CarvalhoReinan/formulario_console.git
 cd formulario-console
 pip install InquirerPy 
 pip install emoji
