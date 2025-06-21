@@ -1,98 +1,108 @@
-# 📊 Estudo em Python - Console Form
 
-Um formulário interativo no terminal feito com [InquirerPy](https://github.com/kazhala/InquirerPy) para ajudar desenvolvedores a refletirem sobre seus hábitos de estudo em Python 🐍.
+# 🌐 Estudo em Python – Web App (Streamlit)
+
+Uma aplicação interativa desenvolvida com [Streamlit](https://streamlit.io/) que ajuda estudantes e desenvolvedores a refletirem sobre seus hábitos de estudo em Python 🐍.
+
+> ✅ Versão web da aplicação originalmente criada para terminal com InquirerPy.
+
+---
 
 ## 🚀 Sobre o Projeto
 
-Este projeto tem como objetivo criar um **questionário leve, divertido e personalizável** para usuários avaliarem:
+Este projeto visa promover a **autoavaliação leve e divertida** dos estudos em Python.  
+A interface gráfica facilita o preenchimento e é ideal para:
 
-- Seu nível atual em Python.
-- Quanto tempo dedicam aos estudos.
-- Por onde estão aprendendo.
-- Se já usam algum framework back-end (como Flask ou Django).
+- Bootcamps e cursos
+- Estudantes iniciantes/intermediários
+- Portfólios de devs em transição de carreira
 
-## 🧰 Tecnologias e Bibliotecas
+O app permite ao usuário informar:
+
+- Seu nível atual em Python
+- Quanto tempo dedica por dia aos estudos
+- Por onde aprende (YouTube, livros, etc.)
+- Se utiliza algum framework (como Django ou Flask)
+
+---
+
+## 🧰 Tecnologias
 
 - Python 3.10+
-- [InquirerPy](https://github.com/kazhala/InquirerPy)
-- [emoji](https://github.com/carpedm20/emoji)
+- [Streamlit](https://streamlit.io/) – Framework web
+- `st.session_state` – Para controle de estado da aplicação
+
+---
 
 ## 📦 Instalação
 
-Clone o repositório e instale as dependências:
-
-```bash
-## 📦 Como Instalar
+### 1. Clone o repositório
 
 ```bash
 git clone https://github.com/CarvalhoReinan/formulario_console.git
-cd formulario-console
-pip install InquirerPy 
-pip install emoji
+cd formulario_console
 ```
+
+### 2. Instale o Streamlit
+
+```bash
+pip install streamlit
+```
+
+---
 
 ## ▶️ Como Executar
 
-No terminal, digite:
+No terminal, execute:
 
 ```bash
-python formulario-Console.py
+streamlit run app.py
 ```
 
-Você será guiado por um conjunto de perguntas que adaptam a conversa com base nas suas respostas.
+A aplicação será aberta automaticamente no navegador em:
+
+```
+http://localhost:8501
+```
+
+---
 
 ## 📁 Estrutura do Projeto
 
 ```
 .
-├── config.py          # Dados fixos como listas de opções
-├── perguntas.py       # Lógica das perguntas interativas
-├── main.py            # Ponto de entrada
-├── requirements.txt   # Dependências do projeto
-└── README.md          # Este arquivo
+├── app.py                # Código principal da versão web
+├── formulario-Console.py # Versão terminal (opcional)
+├── config.py             # Dados fixos (níveis, métodos, frameworks)
+├── perguntas.py          # Lógica de perguntas (terminal)
+├── requirements.txt      # Dependências do projeto
+└── README.md             # Este arquivo
 ```
-
-## ✍️ Personalização
-
-Você pode facilmente:
-
-- Adicionar novos frameworks em `config.py`.
-- Alterar o estilo das mensagens.
-- Incluir novas perguntas no arquivo `perguntas.py`.
-
-## 📸 Preview (simulação)
-
-```
-Qual é o seu nome? Reii
-Reii, qual é seu conhecimento em Python 🐍 ? ↓ - ↑
-❯ Iniciante
-  Intermediário
-  Avançado
-  Cancelar
-
-Reii, você é iniciante em Python, continue estudando e praticando!
-Por onde você estuda Python? 🐍
-❯ Youtube
-  Google
-  Livro
-  Outro?
-```
-
-## 📌 Status
-
-🛠 Em desenvolvimento. Sinta-se livre para sugerir melhorias ou abrir issues!
-
-## 💡 Melhorias Futuras (planejadas)
-
-- Armazenar respostas em arquivos `.json` ou `.csv`
-- Adicionar sistema de progresso ou pontuação
-- Recomendação de conteúdos com base nas respostas
-
-## 📄 Licença
-
-Este projeto é livre para estudos e modificações.  
-Se quiser contribuir ou deixar sugestões, sinta-se à vontade!
 
 ---
 
-Feito com 💻 por [CarvalhoReinan](https://github.com/CarvalhoReinan)
+## 📸 Preview
+
+![preview_streamlit.png](preview_streamlit.png)
+
+> Você pode substituir esta imagem por um print real do seu app!
+
+---
+
+## 💡 Melhorias Futuras
+
+- Armazenar respostas dos usuários (SQLite ou CSV)
+- Recomendação de conteúdos com base nas respostas
+- Exportação para PDF
+- Adição de gráficos e estatísticas
+- Modo escuro e layout mais personalizado
+
+---
+
+## 📄 Licença
+
+Este projeto é open source e livre para uso educacional.  
+Contribuições e sugestões são sempre bem-vindas!
+
+---
+
+Feito com 💻 e ☕ por [CarvalhoReinan](https://github.com/CarvalhoReinan)
