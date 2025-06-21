@@ -103,6 +103,7 @@ http://localhost:8501
 Este projeto é open source e livre para uso educacional.  
 Contribuições e sugestões são sempre bem-vindas!
 
+
 ---
 
 Feito com 💻 e ☕ por [CarvalhoReinan](https://github.com/CarvalhoReinan)
