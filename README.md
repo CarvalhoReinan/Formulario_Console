@@ -83,9 +83,6 @@ http://localhost:8501
 ## 📸 Preview
 
 ![alt text](image.png)
-
-> Você pode substituir esta imagem por um print real do seu app!
-
 ---
 
 ## 💡 Melhorias Futuras
